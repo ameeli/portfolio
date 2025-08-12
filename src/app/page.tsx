@@ -1,24 +1,43 @@
 // don't want this here. move to smaller file, only when needed for code to run on client
 // useState/Effect, access window/document
 "use client";
+import { useRef } from "react";
 import { motion } from "motion/react";
 
 import Image from "next/image";
 
+const box = {
+  width: 100,
+  height: 100,
+  backgroundColor: "#dd00ee",
+  borderRadius: 10,
+};
+
 export default function Home() {
+  const constraintsRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <motion.div animate={{ rotate: 360 }}>
-          <Image
-            className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-        </motion.div>
+      <main
+        ref={constraintsRef}
+        className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start"
+      >
+        <motion.div
+          drag
+          style={box}
+          dragConstraints={constraintsRef}
+          dragElastic={0.5}
+          whileDrag={{ scale: 1.2, backgroundColor: "#f00" }}
+          animate={{ rotate: 360 }}
+        />
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
         <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
           <li className="mb-2 tracking-[-.01em]">
             Get started by editing{" "}
