@@ -33,3 +33,11 @@ body {
   color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.header {
+  @apply text-4xl font-stretch-expanded
+}
+
+.subheader {
+  @apply text-2xl
+}
