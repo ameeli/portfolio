@@ -30,6 +30,7 @@ export default function StarPath() {
     <div className="relative">
       <svg xmlns="http://www.w3.org/2000/svg" width="451" height="437">
         <motion.path
+          data-testid="starpath-path"
           d={explorePath}
           fill="transparent"
           strokeWidth="12"
@@ -43,6 +44,7 @@ export default function StarPath() {
       </svg>
 
       <motion.div
+        data-testid="starpath-moving"
         className="bg-accent subheader px-2 py-1"
         style={textMotion}
         initial={{ offsetDistance: "0%", scale: 2 }}
