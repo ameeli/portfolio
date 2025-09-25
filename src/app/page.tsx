@@ -4,10 +4,10 @@ import StarPath from "./components/StarPath";
 export default function Home() {
   return (
     <div className="min-h-screen p-15">
-      <section>
+      <section aria-label="Star animation">
         <StarPath />
       </section>
-      <section>
+      <section aria-label="Welcome message">
         <Welcome />
       </section>
     </div>
