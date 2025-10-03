@@ -23,5 +23,5 @@ export default function P5Wrapper({ sketch, className }: P5WrapperProps) {
     };
   }, [sketch]);
 
-  return <div ref={sketchRef} className={className}></div>;
+  return <div ref={sketchRef} className={`inline-block ${className}`}></div>;
 }
